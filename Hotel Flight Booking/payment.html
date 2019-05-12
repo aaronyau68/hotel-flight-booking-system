@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HappyTravel Ltd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-item.css" rel="stylesheet">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+      window.onload = function(){
+      	if(localStorage.getItem('isLogin') == null){
+          localStorage.setItem('isLogin', false);
+          alert("not enter anything");
+      	}else
+      		if(localStorage.getItem('isLogin') == "true"){
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "block"});
+      				$("h2").css({"display": "block"});
+      				$("h2").css({"font-weight": "bold"});
+      				$("h2").css({"color": "#b30000"});
+      				$("h4").css({"text-decoration": "line-through"});
+      			});
+      		}else{
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "none"});
+      			});
+      		}    
+		var b = localStorage.getItem('point');
+      	document.getElementById("bonus").innerHTML = "Current Bonus Points: " + b;
+      }
+
+      function logout(){
+      	localStorage.setItem('isLogin', false);
+      	if (window.location.href.indexOf('reload')==-1) {
+		     window.location.replace(window.location.href+'?reload');
+		}
+      }
+    </script>
+
+	<script>
+		function ok(){
+      var b = localStorage.getItem('point');
+      b = parseInt(b) + 2000;
+      localStorage.setItem('point', b);
+			alert("payment success!");
+		}
+	</script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">HappyTravel Ltd</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hotel.html">Hotel</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="flight.html">Filght</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="registration.html">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>   
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1 class="my-4">HappyTravel</h1>
+          <div class="list-group">
+            <a href="all_hotels.html" class="list-group-item active">Back to Search</a>
+          </div>
+          <br>
+          <div class="logined" style="display: none">
+          	<h3>Welcome Peter!</h3>
+          	<p>Enjoy our membership discounts!</p>
+			<p id="bonus"></p>
+          	<button type="button" class="btn btn-primary" id="submit" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+              <h3 class="card-title">HK Express</h3>
+              <h4>$1700</h4>
+              <h2 style="display: none">$1300</h2>
+              <p class="card-text"><img src="img/hkexpress.svg" style="float: left;">
+              18:05 - 23:20
+              HK Express<br>
+              4h 15m
+              HKG - HND
+              Direct
+              </p>
+			  <p>Please enter the following information to pay.</p>
+			  <br>
+		      <form class="form-horizontal" action="index.html">
+                <div class="form-group">
+                  <div class="col-sm-10">First Name: <input type="text" class="form-control" placeholder="eg. Tai Man"></div>
+                  <div class="col-sm-10">Last Name: <input type="text" class="form-control" placeholder="eg. Chan"></div>
+				
+				<div class="col-sm-10"><h3>Payment Details:</h3></div>
+				<fieldset>
+				
+					<div class="col-sm-10" data-toggle="buttons">
+					<p>Payment Method: </p>
+					  <label class="btn btn-primary active">
+						<input type="radio" name="options" id="option1" autocomplete="off" checked>Credit Card
+					  </label>
+					  <label class="btn btn-primary">
+						<input type="radio" name="options" id="option2" autocomplete="off">Paypal
+					  </label>
+					</div>
+					<div class="col-sm-10">First Name:<input type="text" class="form-control" placeholder="eg. Tai Man"></div>
+					<div class="col-sm-10">Last Name: <input type="text" class="form-control" placeholder="eg. Chan"></div>
+					
+					<div class="col-sm-10">
+					<br><p>Card Type:</p>
+					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						American Express
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" >American Express</a>
+						<a class="dropdown-item" >China UnionPay Credit</a>
+						<a class="dropdown-item" >Diner's Club International</a>
+						<a class="dropdown-item" >JBC</a>
+						<a class="dropdown-item" >Master Card</a>
+						<a class="dropdown-item" >Visa</a>
+					  </div>
+					  </br>
+					</div>
+					<div class="col-sm-10">Credit Card Number: <input type="text" class="form-control" ></div>
+					<div class="col-sm-10">CVC: <input type="text" class="form-control" ></div>
+					<div class="col-sm-10">
+						<p>Expire Date:</p> 
+						<div>month</div>
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						1</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" >1</a>
+						<a class="dropdown-item" >2</a>
+						<a class="dropdown-item" >3</a>
+						<a class="dropdown-item" >4</a>
+						<a class="dropdown-item" >5</a>
+						<a class="dropdown-item" >6</a>
+						<a class="dropdown-item" >7</a>
+						<a class="dropdown-item" >8</a>
+						<a class="dropdown-item" >9</a>
+						<a class="dropdown-item" >10</a>
+						<a class="dropdown-item" >11</a>
+						<a class="dropdown-item" >12</a>
+					  </div>				  
+					</div>
+					<div class="col-sm-10">
+					  <div>year</div>
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						2017</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" >2017</a>
+						<a class="dropdown-item" >2018</a>
+						<a class="dropdown-item" >2019</a>
+						<a class="dropdown-item" >2020</a>
+						<a class="dropdown-item" >2021</a>
+						<a class="dropdown-item" >2022</a>
+						<a class="dropdown-item" >2023</a>
+						<a class="dropdown-item" >2024</a>
+						<a class="dropdown-item" >2025</a>
+						<a class="dropdown-item" >2026</a>
+						<a class="dropdown-item" >2027</a>
+					  </div>
+					</div>
+					
+				</fieldset>
+                  <div class="col-sm-10"><br><button type="submit" class="btn btn-primary" id="submit" onclick="ok()">Submit</button>
+                  <button type="reset" class="btn btn-primary">Reset</button></div>
+              </div>
+              </form>
+			  
+            </div>
+          </div>
+          <!-- /.card -->
+			
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; HappyTravel Ltd 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+
+
+  </body>
+
+</html>

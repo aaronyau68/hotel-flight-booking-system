@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HappyTravel Ltd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-item.css" rel="stylesheet">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+      window.onload = function(){
+      	if(localStorage.getItem('isLogin') == null){
+          localStorage.setItem('isLogin', false);
+          alert("not enter anything");
+      	}else
+      		if(localStorage.getItem('isLogin') == "true"){
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "block"});
+      				$("h2").css({"display": "block"});
+      				$("h2").css({"font-weight": "bold"});
+      				$("h2").css({"color": "#b30000"});
+      				$("h4").css({"text-decoration": "line-through"});
+      			});
+      		}else{
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "none"});
+      			});
+      		}     		
+		var b = localStorage.getItem('point');
+      	document.getElementById("bonus").innerHTML = "Current Bonus Points: " + b;
+      }
+
+      function logout(){
+      	localStorage.setItem('isLogin', false);
+      	if (window.location.href.indexOf('reload')==-1) {
+      		alert("You have been logged out");
+		     window.location.replace(window.location.href+'?reload');
+		}
+      }
+    </script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">HappyTravel Ltd</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="hotel.html">Hotel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="flight.html">Filght</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="registration.html">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>   
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1 class="my-4">HappyTravel</h1>
+          <h3>Sort By: </h3>
+          <div class="list-group">
+            <a href="japan_hotel.html" class="list-group-item active">Star Rating</a>
+            <a href="japan_hotel_price.html" class="list-group-item">Price</a>
+            <a href="japan_hotel_facility.html" class="list-group-item">Facility</a>
+          </div>
+          <br>
+          <div class="logined" style="display: none">
+          	<h3>Welcome Peter!</h3>
+          	<p>Enjoy our membership discounts!</p>
+			<p id="bonus"></p>
+          	<button type="button" class="btn btn-primary" id="submit" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>APA Hotel Shinjuku-Kabukicho Tower </b></h3>
+              <h4>$1700 </h4>
+              <h2 style="display: none">$1430  </h2>
+              <p class="card-text"><img src="img/t1.jpg" style="float: right;"> 
+				Located 2.5 miles from National Theater in Tokyo, APA Hotel Shinjuku-Kabukicho Tower features a restaurant and free WiFi throughout the property. Guests can enjoy the on-site restaurant. 	
+				</p><input type="submit" value="select" class="btn btn-primary">     				
+              <span class="text-warning" >&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+              5.0 stars
+			  </form>
+            </div>
+			
+          </div>
+          <!-- /.card -->
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b> Shinjuku Granbell Hotel</b></h3>
+              <h4>$1950 </h4>
+              <h2 style="display: none">$1625  </h2>
+              <p class="card-text"><img src="img/t2.jpg" style="float: right;">Located in Tokyo, 2.4 miles from National Theater, Shinjuku Granbell Hotel features a restaurant, bar and free WiFi throughout the property. Private parking is available on site. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              4.0 stars
+			  </form>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>APA Hotel Shinjuku Gyoemmae</b></h3>
+              <h4>$1780 </h4>
+              <h2 style="display: none">$1520  </h2>
+              <p class="card-text"><img src="img/t3.jpg" style="float: right;">Located 2 miles from National Theater in Tokyo, APA Hotel Shinjuku Gyoemmae features free WiFi access and private parking. Guests can enjoy the on-site restaurant. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              4.0 stars
+			  </form>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>Shinagawa Prince Hotel</b></h3>
+              <h4>$2015 </h4>
+              <h2 style="display: none">$1754  </h2>
+              <p class="card-text"><img src="img/t4.jpg" style="float: right;">Boasting 15 food and beverage options, 2 swimming pools, and its own aquarium, Prince Hotel is right next to JR Shinagawa Train Station, from where Haneda Airport is only a 25-minute train ride away. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              4.0 stars
+			  </form>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>Sotetsu Fresa Inn Ginza-Nanachome</b></h3>
+              <h4>$2356 </h4>
+              <h2 style="display: none">$2154  </h2>
+              <p class="card-text"><img src="img/t5.jpg" style="float: right;">Located 437 yards from Kabukiza Theater in Tokyo, Sotetsu Fresa Inn Ginza-Nanachome features a restaurant and free WiFi throughout the property. Private parking is available on site. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span>
+              3.0 stars
+			  </form>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>The Prince Park Tower Tokyo</b></h3>
+              <h4>$2498 </h4>
+              <h2 style="display: none">$2258  </h2>
+              <p class="card-text"><img src="img/t6.jpg" style="float: right;">Rising above Shiba Park and situated right by Tokyo Tower, The Prince Park Tower Tokyo has spacious rooms with skyline views and free Wi-Fi. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span>
+              3.0 stars
+            </div>
+          </div>
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>HOTEL UNIZO Tokyo Ginza-itchome </b></h3>
+              <h4>$2253 </h4>
+              <h2 style="display: none">$2014  </h2>
+              <p class="card-text"><img src="img/t7.jpg" style="float: right;">HOTEL UNIZO Tokyo Ginza-itchome offers accommodations in Tokyo. Guests can enjoy the on-site restaurant. The rooms include a flat-screen TV. You will find a kettle in the room. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span>
+              3.0 stars
+			  </form>
+            </div>
+          </div>
+
+
+          <div class="card mt-4" style="background-color: #E0ECFA">
+            <div class="card-body">
+			<form action="payment hotel.html">
+              <h3 class="card-title" style="color: #082879"><b>Hotel Gracery Shinjuku</b></h3>
+              <h4>$2654 </h4>
+              <h2 style="display: none">$2365  </h2>
+              <p class="card-text"><img src="img/t8.jpg" style="float: right;">Located in Tokyo, 2.5 miles from National Theater, Hotel Gracery Shinjuku features a restaurant and free WiFi. Guests can enjoy the on-site restaurant. </p>
+              <input type="submit" value="select" class="btn btn-primary">
+              <span class="text-warning">&#9733; &#9734; &#9734; &#9734; &#9734;</span>
+              1.0 stars
+			  </form>
+            </div>
+          </div>
+          <br><br>
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; HappyTravel Ltd 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+
+
+  </body>
+
+</html>

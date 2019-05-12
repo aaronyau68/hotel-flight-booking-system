@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>HappyTravel Ltd</title>
+
+    <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="datepicker/css/datepicker.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-item.css" rel="stylesheet">
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function(){
+      	if(localStorage.getItem('isLogin') == null){
+          localStorage.setItem('isLogin', false);
+          alert("not enter anything");
+      	}else
+      		if(localStorage.getItem('isLogin') == "true"){
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "block"});
+      			});
+      		}else{
+      			$(document).ready(function() {
+      				$(".logined").css({"display": "none"});
+      			});
+      		} 
+		var b = localStorage.getItem('point');
+      	document.getElementById("bonus").innerHTML = "Current Bonus Points: " + b;    		
+      }
+
+      function logout(){
+      	localStorage.setItem('isLogin', false);
+      	if (window.location.href.indexOf('reload')==-1) {
+      		alert("You have been logged out");
+		     window.location.replace(window.location.href+'?reload');
+		    }
+      }
+      function select(){
+        var des = document.getElementById("des").value;
+        if(des == "Seoul")
+          window.location.replace("seoul_flight.html");
+        else
+          window.location.replace("all_flights.html");
+      }
+    </script>
+
+  <script src="datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('.datepicker').datepicker();
+      })
+    </script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">HappyTravel Ltd</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hotel.html">Hotel</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="flight.html">Filght</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="registration.html">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>  
+            </li>  
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <h1 class="my-4">HappyTravel</h1>
+          <div class="list-group">
+            <a href="index.html" class="list-group-item ">Home</a>
+            <a href="hotel.html" class="list-group-item">Search Hotel</a>
+            <a href="flight.html" class="list-group-item active">Search Flight</a>
+            <a href="registration.html" class="list-group-item">Registration</a>
+            <a href="login.html" class="list-group-item">Log in</a>
+          </div>
+          <br>
+          <div class="logined" style="display: none">
+          	<h3>Welcome Peter!</h3>
+          	<p>Enjoy our membership discounts!</p>
+			<p id="bonus"></p>
+          	<button type="button" class="btn btn-primary" id="submit" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4">
+            <div class="card-body">
+              <h3 class="card-title">Search Flights</h3>
+              <form class="form-horizontal" method="get">
+                <div class="form-group">
+                  <div class="col-sm-10">Fly From: <input type="text" class="form-control" placeholder="eg. Hong Kong, Tokoyo"></div><br>
+                  <div class="col-sm-10">Fly To: <input type="text" id="des" class="form-control" placeholder="eg. Hong Kong, Tokoyo"></div><br>
+                  <div class="col-sm-10"> 
+                    Departing: <br><input type="text" class="datepicker" name="date" placeholder="select Check-in date">
+                </div>
+                <div class="col-sm-10"> 
+                    Returning: <br><input type="text" class="datepicker" name="date" placeholder="select Check-out date">
+                  </div>
+                  <div class="col-sm-10">Adults(18+): <br>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              1
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">2</a>
+              <a class="dropdown-item" href="#">3</a>
+              <a class="dropdown-item" href="#">4</a>
+              <a class="dropdown-item" href="#">5</a>
+              <a class="dropdown-item" href="#">6</a>
+            </div>
+          </div>
+          <div class="col-sm-10">Childrens(0-17): <br>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              0
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">1</a>
+              <a class="dropdown-item" href="#">2</a>
+              <a class="dropdown-item" href="#">3</a>
+              <a class="dropdown-item" href="#">4</a>
+              <a class="dropdown-item" href="#">5</a>
+            </div>
+          </div>          
+                  <div class="well"><br><button type="button" onclick="select()" class="btn btn-primary">Search</button>
+                  <button type="reset" class="btn btn-primary">Reset</button></div>
+              </div>
+              </form>
+            </div>
+          </div>
+          <!-- /.card -->
+          <br><br><br><br><br><br><br><br><br>
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; HappyTravel Ltd 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+  </body>
+
+</html>
